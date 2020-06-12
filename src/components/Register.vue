@@ -1,31 +1,21 @@
 <template>
   <div>
-    <h4>Register</h4>
-    <form @submit.prevent="register">
-      <label for="name">Username</label>
-      <div>
-        <input id="name" type="text" v-model="name" required autofocus />
-      </div>
-
-      <label for="email">E-Mail Address</label>
-      <div>
-        <input id="email" type="email" v-model="email" required />
-      </div>
-
-      <label for="password">Password</label>
-      <div>
-        <input id="password" type="password" v-model="password1" required />
-      </div>
-
-      <label for="password-confirm">Confirm Password</label>
-      <div>
-        <input id="password-confirm" type="password" v-model="password2" required />
-      </div>
-
-      <div>
-        <button type="submit">Register</button>
-      </div>
-    </form>
+        <v-row class = "justify-md-center">
+      <v-col cols="3">
+        <v-card>
+          <v-card-title>Register</v-card-title>
+          <v-card-text>
+            <v-form @submit.prevent="register">
+              <v-text-field id="name" type="text" v-model="name" required autofocus placeholder="Username"/>
+              <v-text-field id="email" type="email" v-model="email" required placeholder="E-Mail Address"/>
+              <v-text-field id="password" type="password" v-model="password1" required  placeholder="Password"/>
+              <v-text-field id="password-confirm" type="password" v-model="password2" required placeholder="Confirm Password"/>
+              <v-btn type="submit">Register</v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
