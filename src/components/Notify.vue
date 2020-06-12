@@ -23,16 +23,15 @@
           <v-row>
             <v-col class="text-left">
               События
-                <v-btn class="mx-3" @click="getNotifications('date_range=today')">Сегодня</v-btn></div>
-                <v-btn class="mx-3" @click="getNotifications('date_range=week')">Неделя</v-btn></div>
-                <v-btn class="mx-3" @click="getNotifications('date_range=month')">Месяц</v-btn></div>
+                <v-btn class="mx-3" @click="getNotifications('date_range=today')">Сегодня</v-btn>
+                <v-btn class="mx-3" @click="getNotifications('date_range=week')">Неделя</v-btn>
+                <v-btn class="mx-3" @click="getNotifications('date_range=month')">Месяц</v-btn>
 
             </v-col>
             <v-col class="text-right">
               <v-btn color="green" dark @click="event_dialog=true">Добавить новое</v-btn>
             </v-col>
           </v-row>
-          
         </v-card-title>
           <v-simple-table fixed-header>
             <template v-slot:default>
@@ -160,8 +159,8 @@ export default {
     }
   },
   methods: {
-    getNotifications (query_params) {
-      let url = query_params ? `notifications?${query_params}` : 'notifications'
+    getNotifications (QueryParams) {
+      let url = QueryParams ? `notifications?${QueryParams}` : 'notifications'
       console.log(url)
       axios.get(url)
         .then(response => {
@@ -189,7 +188,6 @@ export default {
       this.event = Object.assign({}, this.items[index])
       this.date = moment(this.event.date).format('YYYY-MM-DD')
       this.time = moment(this.event.date).format('HH:mm')
-      console.log(this.event)
       this.event_dialog = true
     },
     deleteEvent (index) {
