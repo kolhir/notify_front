@@ -4,6 +4,8 @@ import store from '@/store.js'
 import Notify from '@/components/Notify'
 import Login from '@/components/Login.vue'
 import Register from '@/components/Register.vue'
+import SendReview from '@/components/SendReview.vue'
+import Reviews from '@/components/Reviews.vue'
 
 Vue.use(Router)
 
@@ -26,15 +28,22 @@ let router = new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/reviews',
+      name: 'reviews',
+      component: Reviews
+    },
+    {
+      path: '/send_review',
+      name: 'send_review',
+      component: SendReview,
     }
   ]
 })
 
-export default router
-
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    console.log(store.getters.isLoggedIn)
     if (store.getters.isLoggedIn) {
       next()
       return
@@ -44,3 +53,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
+export default router

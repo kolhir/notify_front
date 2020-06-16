@@ -1,6 +1,6 @@
 <template>
-  <div>
-        <v-row class = "justify-md-center">
+  <v-container fluid >
+    <v-row class = "justify-md-center">
       <v-col cols="3">
         <v-card>
           <v-card-title>Register</v-card-title>
@@ -16,7 +16,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>

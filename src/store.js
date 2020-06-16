@@ -65,6 +65,10 @@ export default new Vuex.Store({
             reject(err)
           })
       })
+    },
+    logout ({commit}) {
+      localStorage.removeItem('token')
+      commit('logout')
     }
   },
   getters: {
